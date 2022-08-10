@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!--
+/**
+
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+        <add id="BuyRite_Faq::faqs" title="FAQs" module="BuyRite_Faq" sortOrder="60" resource="BuyRite_Faq::faqs"/>
+        <add id="BuyRite_Faq::faq" title="Manage FAQs" module="BuyRite_Faq" sortOrder="61" parent="BuyRite_Faq::faqs" action="buyrite/faq" resource="BuyRite_Faq::faq"/>
+        <add id="BuyRite_Faq::category" title="Manage FAQ Categories" module="BuyRite_Faq" sortOrder="62" parent="BuyRite_Faq::faqs" action="buyrite/faqcat" resource="BuyRite_Faq::faq"/>
+    </menu>
+</config>

@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!--
+/**
+
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <virtualType name="buyriteFaqGirdFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="buyriteFaqFaqGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">BuyRite\Faq\Model\ResourceModel\Faq\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">buyriteFaqGridFilterPool</argument>
+        </arguments>
+    </virtualType>
+    <type name="BuyRite\Faq\Model\ResourceModel\Faq\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">buyrite_faq</argument>
+            <argument name="eventPrefix" xsi:type="string">buyrite_faq_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">faq_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">BuyRite\Faq\Model\ResourceModel\Faq</argument>
+        </arguments>
+    </type>
+    <type name="BuyRite\Faq\Model\ResourceModel\Faqcat\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">buyrite_faq_category</argument>
+            <argument name="eventPrefix" xsi:type="string">buyrite_faqcat_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">faqcat_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">BuyRite\Faq\Model\ResourceModel\Faqcat</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="faq_listing_data_source" xsi:type="string">BuyRite\Faq\Model\ResourceModel\Faq\Grid\Collection</item>
+                <item name="faqcat_listing_data_source" xsi:type="string">BuyRite\Faq\Model\ResourceModel\Faqcat\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

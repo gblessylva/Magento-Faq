@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <script src="BuyRite_Faq::js/js-question.js" />
+    </head>
+    <referenceContainer name="content">
+        <referenceBlock name="page.main.title" remove="true"/>
+        <block class="BuyRite\Faq\Block\Question\Question" name="faq.question.view" template="BuyRite_Faq::question/view.phtml" cacheable="false"/>
+    </referenceContainer>
+    <referenceContainer name="sidebar.main">
+        <block class="BuyRite\Faq\Block\Category\CategorySidebar" name="faq.category.sidebar.view" template="BuyRite_Faq::category/categorySidebar.phtml" />
+    </referenceContainer>
+</page>
